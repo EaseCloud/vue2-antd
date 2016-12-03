@@ -1,7 +1,10 @@
 <template>
-  <span :class="classes" tabindex="0" @click="toggle"
+  <span class="ant-switch"
+        :class="classes"
+        tabindex="0"
+        @click="toggle"
         @keydown.enter.space="toggle">
-    <span :class="prefixCls + '-inner'">
+    <span class="ant-switch-inner">
       <slot></slot>
       <span v-if="value"><slot name="checked"></slot></span>
       <span v-else><slot name="unchecked"></slot></span>
@@ -10,29 +13,26 @@
 </template>
 
 <script lang="babel">
-  import { defaultProps, oneOf } from '../../utils';
-
   export default {
-    props: defaultProps({
-      prefixCls: 'ant-switch',
+    props: {
       // public props
       disabled: Boolean,
-      size: oneOf(['small', undefined]),
+      size: {
+        type: String,
+        validator(value) {
+          return ['small'].indexOf(value) > -1;
+        }
+      },
       // v-model
       value: Boolean,
-    }),
-
-    mounted() {
-      console.log(this.$slots);
     },
 
     computed: {
       classes() {
         return {
-          [this.prefixCls]: true,
-          [`${this.prefixCls}-checked`]: this.value,
-          [`${this.prefixCls}-disabled`]: this.disabled,
-          [`${this.prefixCls}-${this.size}`]: !!this.size,
+          'ant-switch-checked': this.value,
+          'ant-switch-disabled': this.disabled,
+          [`ant-switch-${this.size}`]: !!this.size,
         };
       },
     },
@@ -46,5 +46,4 @@
       },
     },
   };
-
 </script>
