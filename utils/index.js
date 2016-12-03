@@ -32,8 +32,8 @@ export const removeEndEventListener = _events.removeEndEventListener;
 import * as _guid from './guid';
 export const guid = _guid.guid;
 
-import _cx from 'classnames';
-export const cx = _cx;
+// import _cx from 'classnames';
+// export const cx = _cx;
 
 import _KeyCode from './KeyCode';
 export const KeyCode = _KeyCode;
