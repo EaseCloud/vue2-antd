@@ -1,6 +1,9 @@
 const components = {
   AntButton: require('./components/Button.vue'),
   AntButtonGroup: require('./components/ButtonGroup.vue'),
+  AntRadio: require('./components/Radio.vue'),
+  AntRadioButton: require('./components/RadioButton.vue'),
+  AntRadioGroup: require('./components/RadioGroup.vue'),
   AntInput: require('./components/Input.vue'),
   AntInputNumber: require('./components/InputNumber.vue'),
   AntSearch: require('./components/Search.vue'),

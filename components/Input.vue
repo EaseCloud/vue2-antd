@@ -41,9 +41,10 @@
           return [
               'button', 'checkbox', 'date', 'datetime',
               'email', 'file', 'hidden', 'image',
-              'month', 'number', 'password', 'radio',
+              'month', 'number', 'password',
               'range', 'reset', 'submit', 'text',
               'time', 'url', 'week', 'datetime-local',
+              // 'radio',
               'textarea'].indexOf(value) > -1;
         },
       },
