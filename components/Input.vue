@@ -53,6 +53,8 @@
           return ['small', 'large'].indexOf(value) > -1;
         },
       },
+      min: Number,
+      max: Number,
       disabled: Boolean,
       placeholder: String,
       autosize: [Boolean, Object],
@@ -72,18 +74,23 @@
         const sz = ({ large: 'lg', small: 'sm' })[this.size] || '';
         // Integration
         return {
-          'ant-btn-icon-only': this.icon && !this.$slots.default,
-          'ant-btn-loading': this.loading !== null && this.loading,
-          [`ant-btn-${this.type}`]: !!this.type,
-          [`ant-btn-${sz}`]: !!this.size,
-          [`ant-btn-${this.shape}`]: !!this.shape,
+          [`ant-input-${sz}`]: !!this.size,
         };
       },
     },
     methods: {
       update(e) {
-        console.log(e.target.value);
-        this.$emit('input', this.value);
+        const vm = this;
+        const value = e.target.value;
+        // min 和 max 的限制
+        if (vm.type === 'number'
+          && (vm.min !== undefined && Number(value) < vm.min
+          || vm.max !== undefined && Number(value) > vm.max)) {
+          e.target.value = vm.value;
+          this.$emit('input', vm.value);
+          return false;
+        }
+        this.$emit('input', value);
       },
     },
   };

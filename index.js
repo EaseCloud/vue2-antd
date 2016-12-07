@@ -2,8 +2,11 @@ const components = {
   AntButton: require('./components/Button.vue'),
   AntButtonGroup: require('./components/ButtonGroup.vue'),
   AntInput: require('./components/Input.vue'),
+  AntInputNumber: require('./components/InputNumber.vue'),
   AntSearch: require('./components/Search.vue'),
   AntSwitch: require('./components/Switch.vue'),
+  AntRow: require('./components/Row.vue'),
+  AntCol: require('./components/Col.vue'),
 };
 
 export default {
