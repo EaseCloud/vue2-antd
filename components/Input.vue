@@ -8,6 +8,7 @@
               :class="classes"
               :placeholder="placeholder"
               :rows="rows"
+              :value="value"
               @input="update"></textarea>
 
     <template v-else>
