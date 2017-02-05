@@ -3,14 +3,14 @@
     <slot>
       <template v-if="type=='button'">
         <ant-radio-button v-for="(text, name) in options"
-                   @check="$emit('input', $event)"
+                   @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
         </ant-radio-button>
       </template>
       <template v-else>
         <ant-radio v-for="(text, name) in options"
-                   @check="$emit('input', $event)"
+                   @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
         </ant-radio>
@@ -22,6 +22,10 @@
 <script lang="babel">
   export default {
     props: {
+      readonly: {
+        type: Boolean,
+        default: false,
+      },
       value: { type: String },
       options: { type: Object },
       type: {
