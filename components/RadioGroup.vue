@@ -2,18 +2,18 @@
   <div class="ant-radio-group" :class="classes">
     <slot>
       <template v-if="type=='button'">
-        <ant-radio-button v-for="(text, name) in options"
+        <v-radio-button v-for="(text, name) in options"
                    @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
-        </ant-radio-button>
+        </v-radio-button>
       </template>
       <template v-else>
-        <ant-radio v-for="(text, name) in options"
+        <v-radio v-for="(text, name) in options"
                    @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
-        </ant-radio>
+        </v-radio>
       </template>
     </slot>
   </div>
