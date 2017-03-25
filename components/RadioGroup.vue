@@ -3,6 +3,7 @@
     <slot>
       <template v-if="type=='button'">
         <v-radio-button v-for="(text, name) in options"
+                   :key="name"
                    @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
@@ -10,6 +11,7 @@
       </template>
       <template v-else>
         <v-radio v-for="(text, name) in options"
+                   :key="name"
                    @check="!readonly && $emit('input', $event)"
                    :value="name"
                    :checked="value==name">{{text}}
